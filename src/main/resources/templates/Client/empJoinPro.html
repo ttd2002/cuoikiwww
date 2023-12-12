@@ -5,7 +5,14 @@
     <title>Products</title>
 </head>
 <body>
-<H2>Day la danh sach san pham</H2>
+<H2>Day la danh sach nhan vien theo ten</H2>
+<form th:object="${employee}" method="post" th:action="@{/Client/actionGetName}">
+    <label for="empName">Choose name:</label>
+    <select name="empName" id="empName" th:field="*{id}">
+        <option  th:each="emp :${lst}" th:value="${emp.id}" th:text="${emp.name}"></option>
+    </select>
+    <button type="submit">Choose</button>
+</form>
 <table border="1">
 
     <tbody>

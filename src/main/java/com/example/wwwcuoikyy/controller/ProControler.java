@@ -1,7 +1,10 @@
 package com.example.wwwcuoikyy.controller;
 
+import com.example.wwwcuoikyy.models.Employee;
 import com.example.wwwcuoikyy.models.Product;
+import com.example.wwwcuoikyy.repos.EmpRepo;
 import com.example.wwwcuoikyy.repos.ProRepo;
+import com.example.wwwcuoikyy.services.EmpService;
 import com.example.wwwcuoikyy.services.ProService;
 import com.example.wwwcuoikyy.services.ProServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +19,17 @@ import java.util.List;
 public class ProControler {
     @Autowired
     private ProService proService;
+
+    @Autowired
+    private EmpService empService;
     @GetMapping("/Home")
     public String test(Model model){
 
         List<Product> lst = proService.getAll();
         model.addAttribute("list", lst);
+
+        List<Employee> lstEmp = empService.getAllEmp();
+        model.addAttribute("listEmp", lstEmp);
         return "Admin/index";
     }
 
@@ -28,6 +37,9 @@ public class ProControler {
     public String add(Model model){
         Product product = new Product();
         model.addAttribute("product",product);
+
+        List<Employee> lstEmp = empService.getAllEmp();
+        model.addAttribute("lst", lstEmp);
         return "Admin/add-Product";
     }
 
@@ -45,7 +57,18 @@ public class ProControler {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable(value = "id") long id){
-        proService.delete(id);
+        this.proService.delete(id);
+        return "redirect:/testAdmin/Home";
+    }
+    @GetMapping("/ShowFormAddEmp")
+    public String addEmp(Model model){
+        Employee employee = new Employee();
+        model.addAttribute("employee",employee);
+        return "Admin/add-Employee";
+    }
+    @PostMapping("/add-Emp")
+    public String addActionEmp(@ModelAttribute("employee") Employee employee){
+        empService.addEmp(employee);
         return "redirect:/testAdmin/Home";
     }
 }

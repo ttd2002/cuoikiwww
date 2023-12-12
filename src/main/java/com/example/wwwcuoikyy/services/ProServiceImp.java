@@ -19,7 +19,7 @@ public class ProServiceImp implements ProService{
 
     @Override
     public void delete(long id) {
-        proRepo.delete(proRepo.findById(id).get());
+        this.proRepo.deleteById(id);
     }
 
     @Override

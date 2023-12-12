@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add-Product</title>
+</head>
+<body>
+<h2>Tao moi nhan vien</h2>
+<form method="POST" th:action="@{/testAdmin/add-Emp}" th:object="${employee}">
+    <label for="name">Employee name:</label><br>
+    <input type="text" id="name" th:field="*{name}"><br>
+    <label for="birth">Employee BirthDate:</label><br>
+    <input type="text" id="birth" th:field="*{birthDate}"><br>
+    <label for="empRole">Choose Role:</label>
+    <select id="empRole" th:field="*{empRoles}">
+        <option  th:each="role : ${T(com.example.wwwcuoikyy.models.EmpRoles).values()}" th:value="${role}" th:text="${role}"></option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

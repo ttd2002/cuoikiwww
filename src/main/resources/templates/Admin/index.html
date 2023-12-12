@@ -6,7 +6,9 @@
 </head>
 <body>
 <H2>Day la danh sach san pham</H2>
-<a th:href="@{/testAdmin/ShowFormAdd}">Add</a>
+<a th:href="@{/testAdmin/ShowFormAdd}">Add Product</a> <br>
+
+
 <table border="1">
 
     <tbody>
@@ -19,10 +21,37 @@
         <tr th:each="pro: ${list}">
             <td th:text="${pro.getId()}"></td>
             <td th:text="${pro.getName()}"></td>
-            <td><a th:href="@{/testAdmin/ShowFormEdit/{id}(id=${pro.getId()})}">update</a></td>
-            <td><a th:href="@{/testAdmin/delete/{id}(id=${pro.getId()})}">delete</a></td>
+            <td>
+                <a th:href="@{/testAdmin/ShowFormEdit/{id}(id=${pro.getId()})}">update</a>
+                <a th:href="@{/testAdmin/delete/{id}(id=${pro.getId()})}">delete</a>
+            </td>
+
 
         </tr>
+
+    </tbody>
+</table>
+<br>
+<br>
+<H2>Day la danh sach nhan vien</H2>
+<a th:href="@{/testAdmin/ShowFormAddEmp}">Add Employee</a>
+<table border="1">
+
+    <tbody>
+    <tr>
+        <th>Id</th>
+        <th>name</th>
+        <th>birth date</th>
+        <th>role</th>
+
+    </tr>
+    <tr th:each="emp: ${listEmp}">
+        <td th:text="${emp.getId()}"></td>
+        <td th:text="${emp.getName()}"></td>
+        <td th:text="${emp.getBirthDate()}"></td>
+        <td th:text="${emp.getEmpRoles()}"></td>
+
+    </tr>
 
     </tbody>
 </table>

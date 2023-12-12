@@ -9,7 +9,10 @@
 <form method="POST" th:action="@{/testAdmin/action}" th:object="${product}">
     <label for="name">Product name:</label><br>
     <input type="text" id="name" th:field="*{name}"><br>
-
+    <label for="empName">Choose name:</label>
+    <select name="empName" id="empName" th:field="*{employee.id}">
+        <option  th:each="emp :${lst}" th:value="${emp.id}" th:text="${emp.name}"></option>
+    </select>
     <button type="submit">Submit</button>
 </form>
 </body>

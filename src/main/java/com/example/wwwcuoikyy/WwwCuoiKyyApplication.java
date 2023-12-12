@@ -43,8 +43,7 @@ public class WwwCuoiKyyApplication {
 
 
             String str1 = "25/05/2002";
-            DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("d/MM/yyyy");
-            LocalDate dateTime1 = LocalDate.parse(str, formatter);
+            LocalDate dateTime1 = LocalDate.parse(str1, formatter);
             Employee emp2 = new Employee("Hao",dateTime1, EmpRoles.STAFF,null);
 
             Product pro3 = new Product("Giay ba lan xi a ga", emp2);
