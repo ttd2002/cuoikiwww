@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add-Product</title>
+</head>
+<body>
+<h2>Cap nhat product</h2>
+<form method="POST" th:action="@{/testAdmin/action}" th:object="${product}">
+    <input type="hidden" id="id" th:field="*{id}"><br>
+    <label for="name">Product name:</label><br>
+    <input type="text" id="name" th:field="*{name}"><br>
+
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

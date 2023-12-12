@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add-Product</title>
+</head>
+<body>
+<h2>Tao moi product</h2>
+<form method="POST" th:action="@{/testAdmin/action}" th:object="${product}">
+    <label for="name">Product name:</label><br>
+    <input type="text" id="name" th:field="*{name}"><br>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

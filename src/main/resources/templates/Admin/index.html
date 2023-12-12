@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<H2>Day la danh sach san pham</H2>
+<a th:href="@{/testAdmin/ShowFormAdd}">Add</a>
+<table border="1">
+
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>action</th>
+
+        </tr>
+        <tr th:each="pro: ${list}">
+            <td th:text="${pro.getId()}"></td>
+            <td th:text="${pro.getName()}"></td>
+            <td><a th:href="@{/testAdmin/ShowFormEdit/{id}(id=${pro.getId()})}">update</a></td>
+            <td><a th:href="@{/testAdmin/delete/{id}(id=${pro.getId()})}">delete</a></td>
+
+        </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<H2>Day la danh sach san pham</H2>
+<table border="1">
+
+    <tbody>
+    <tr>
+        <th>Emp Id</th>
+        <th>Emp name</th>
+        <th>Emp birth date</th>
+        <th>Emp role</th>
+        <th>pro id</th>
+        <th>pro name</th>
+
+    </tr>
+    <tr th:each="pro: ${list}">
+        <td th:text="${pro.getEmp_id()}"></td>
+        <td th:text="${pro.getEmp_name()}"></td>
+        <td th:text="${pro.getBirthD()}"></td>
+        <td th:text="${pro.getRole()}"></td>
+        <td th:text="${pro.getPro_id()}"></td>
+        <td th:text="${pro.getPro_name()}"></td>
+
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
